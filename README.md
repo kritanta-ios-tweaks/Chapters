@@ -1,3 +1,5 @@
 # Chapters
 
-Adds page labels to your homescreen pages
+Adds labels to your homescreen pages
+
+Get it on https://repo.openpack.io/
