@@ -4,7 +4,9 @@ icmd: sbreload
 
 Chapters:
   type: tweak
+  include:
+    - include/
   objc_files:
     - Chapters.mm
-    - CHPManager.m
-    - CHPPageLabelView.m
+    - Chapters/CHPManager.m
+    - Chapters/CHPPageLabelView.m

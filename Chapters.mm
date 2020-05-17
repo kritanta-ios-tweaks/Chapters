@@ -10,8 +10,8 @@
 
 @import UIKit;
 
-#include "SpringBoardHome.h"
-#include "CHPManager.h"
+#include "include/SpringBoardHome.h"
+#include "Chapters/CHPManager.h"
 
 #import <objc/runtime.h>
 #include "substrate.h"
