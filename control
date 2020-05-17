@@ -1,0 +1,11 @@
+Package: me.kritanta.chapters
+Name: Chapters
+Depends: mobilesubstrate
+Version: 0.1.1-alpha
+Architecture: iphoneos-arm
+Depiction: http://repo.openpack.io/depictions/?id=me.kritanta.chapters
+Description: Label your pages.
+Maintainer: Kritanta
+Author: Kritanta
+Section: Tweaks
+Icon: http://repo.openpack.io/icon/Chapters.png

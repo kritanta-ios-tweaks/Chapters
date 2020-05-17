@@ -1,0 +1,10 @@
+---
+name: Chapters
+icmd: sbreload
+
+Chapters:
+  type: tweak
+  objc_files:
+    - Chapters.mm
+    - CHPManager.m
+    - CHPPageLabelView.m
