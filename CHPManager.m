@@ -131,7 +131,7 @@
                   createIfNecessary:(BOOL)create
 {
     // Check if a value exists for the index we were given
-    if (!_labels[@(index)])
+    if (!_labels[@(index)] && create)
     {
         @try
         {
