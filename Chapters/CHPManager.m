@@ -4,6 +4,7 @@
 
 #import "CHPManager.h"
 #import "CHPPageLabelView.h"
+#import "../include/SpringBoardHome.h"
 
 @implementation CHPManager
 {
@@ -91,23 +92,14 @@
     // Occasionally springboard throws an insanely high number at us
     // Rather than finding the source of this issue I've opted to just
     //      nix any index thrown at us higher than 500. It works.
-    if (index >= 500)
+    if (index >= 500 || [controller folderDelegate] == nil)
     {
         return;
     }
 
-    @try
-    {
-        struct SBIconListLayoutMetrics metrics;
-        metrics.layoutInsets = [[[[controller folderDelegate] rootIconListAtIndex:0] layout]
-                layoutInsetsForOrientation:1];
-
-        _layoutMetrics = metrics;
-    }
-    @catch (NSException *ex)
-    {
-        return;
-    }
+    struct SBIconListLayoutMetrics metrics;
+    metrics.layoutInsets = [[[[controller folderDelegate] rootIconListAtIndex:0] layout] layoutInsetsForOrientation:1];
+    _layoutMetrics = metrics;
 
     if (index != -1)
     {
@@ -116,13 +108,9 @@
 
     for (int i = 0; i < [controller iconListViewCount]; i++)
     {
-        if ([controller folderDelegate])
+        if ([[controller folderDelegate] rootIconListAtIndex:i])
         {
-            SBIconListView *list = [[controller folderDelegate] rootIconListAtIndex:i];
-            if (list)
-            {
-                [[self labelForIndex:i onController:controller createIfNecessary:YES] reload];
-            }
+            [[self labelForIndex:i onController:controller createIfNecessary:YES] reload];
         }
     }
 }
@@ -161,9 +149,8 @@
  */
 - (NSString *)nameForPageIndex:(NSInteger)index
 {
-    return [_store objectForKey:[NSString stringWithFormat:@"%ld", (long)index]] ?: [NSString stringWithFormat:@"Page "
-                                                                                                             "%ld",
-                                                                                                  (long)index + 1];
+    return [_store objectForKey:[NSString stringWithFormat:@"%ld", (long) index]]
+           ?: [NSString stringWithFormat:@"Page %ld", (long)index + 1];
 }
 
 /**
@@ -174,7 +161,7 @@
  */
 - (void)setName:(NSString *)name forPageIndex:(NSInteger)index
 {
-    [_store setObject:name forKey:[NSString stringWithFormat:@"%ld", (long)index]];
+    [_store setObject:name forKey:[NSString stringWithFormat:@"%ld", (long) index]];
 }
 
 /**
@@ -184,11 +171,9 @@
  */
 - (CGRect)frameForLabel
 {
+    // If we don't have a proper rect, just assume iPhone X defaults.
     if (_layoutMetrics.layoutInsets.left == 0)
-    {
-        // If we don't have a proper rect, just assume iPhone X defaults.
         return CGRectMake(27, 54, [[UIScreen mainScreen] bounds].size.width - 54, 70);
-    }
 
     return CGRectMake(_layoutMetrics.layoutInsets.left + 2, _layoutMetrics.layoutInsets.top - 10, [[UIScreen
             mainScreen] bounds].size.width - _layoutMetrics.layoutInsets.left * 2, 70);
