@@ -102,15 +102,17 @@
     _layoutMetrics = metrics;
 
     if (index != -1)
-    {
-        [[self labelForIndex:index onController:controller createIfNecessary:YES] reload];
+    {   
+        CHPPageLabelView *label = [self labelForIndex:index onController:controller createIfNecessary:YES];
+        [label reload];
     }
 
     for (int i = 0; i < [controller iconListViewCount]; i++)
     {
         if ([[controller folderDelegate] rootIconListAtIndex:i])
         {
-            [[self labelForIndex:i onController:controller createIfNecessary:YES] reload];
+            CHPPageLabelView *label = [self labelForIndex:i onController:controller createIfNecessary:YES];
+            [label reload];
         }
     }
 }
@@ -173,10 +175,14 @@
 {
     // If we don't have a proper rect, just assume iPhone X defaults.
     if (_layoutMetrics.layoutInsets.left == 0)
-        return CGRectMake(27, 54, [[UIScreen mainScreen] bounds].size.width - 54, 70);
+        return CGRectMake(27, 54 + [[_store valueForKey:@"TopMargin"] intValue], [[UIScreen mainScreen] bounds].size.width - 54, 70);
 
-    return CGRectMake(_layoutMetrics.layoutInsets.left + 2, _layoutMetrics.layoutInsets.top - 10, [[UIScreen
+    return CGRectMake(_layoutMetrics.layoutInsets.left + 2, _layoutMetrics.layoutInsets.top - 10 + [[_store valueForKey:@"TopMargin"] intValue], [[UIScreen
             mainScreen] bounds].size.width - _layoutMetrics.layoutInsets.left * 2, 70);
+}
+
++ (NSString *)processedTitleForText:(NSString *)string
+{
 
 }
 

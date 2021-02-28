@@ -56,6 +56,7 @@ struct SBIconListLayoutMetrics {
 
 @interface SBIconListView (SBHIconManager)
 @property (nonatomic, weak, readwrite) SBHIconManager *iconViewProvider;
+@property (nonatomic, assign) UIEdgeInsets additionalLayoutInsets API_AVAILABLE(ios(14));
 @end
 @interface SBRootIconListView : SBIconListView
 @end
@@ -67,10 +68,12 @@ struct SBIconListLayoutMetrics {
 
 @interface SBHIconManager (SBRootFolderController)
 @property (nonatomic, strong,readwrite) SBRootFolderController *rootFolderController;
+-(SBRootFolderController *) _rootFolderController;
 @end
 
 @interface SBIconController
 @property (nonatomic, strong) SBHIconManager *iconManager;
++(instancetype) sharedInstance;
 @end
 
 @interface SBHomeScreenPreviewView : UIView

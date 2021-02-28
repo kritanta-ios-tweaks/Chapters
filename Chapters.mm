@@ -37,6 +37,8 @@ static struct CGPoint hooked_SBILV_originForIconAtCoordinate$metrics (SBIconList
 static void (*orig_SBRFC_viewWillAppear) (SBRootFolderController *, SEL, BOOL);
 static void hooked_SBRFC_viewWillAppear (SBRootFolderController *, SEL, BOOL);
 
+static void *observer = NULL;
+
 /**
  * [_UIStatusBar setForegroundColor:]
  *
@@ -70,7 +72,7 @@ static struct CGPoint hooked_12_SBRILV_originForIconAtCoordinate (SBRootIconList
 {
     CGPoint o = orig_12_SBRILV_originForIconAtCoordinate(self, cmd, coordinate, metrics);
 
-    o.y += 54;
+    o.y += (54 + [[prefs valueForKey:@"BottomMargin"] intValue]+ [[prefs valueForKey:@"TopMargin"] intValue]);
 
     return o;
 }
@@ -97,6 +99,8 @@ static void hooked_SBILV_layoutIconsNow (SBIconListView *self, SEL cmd)
 
     if ([self.iconLocation isEqualToString:@"SBIconLocationRoot"])
     {
+        if (@available(iOS 14, *))
+            self.additionalLayoutInsets = UIEdgeInsetsMake((54 + [[prefs valueForKey:@"BottomMargin"] intValue]+ [[prefs valueForKey:@"TopMargin"] intValue]),0,-(54 + [[prefs valueForKey:@"BottomMargin"] intValue]+ [[prefs valueForKey:@"TopMargin"] intValue]),0);
         [[CHPManager sharedInstance] reloadLabelsForRootFolderController:self.iconViewProvider.rootFolderController
                                                                    index:-1];
     }
@@ -120,9 +124,10 @@ static struct CGPoint hooked_SBILV_originForIconAtCoordinate$metrics (SBIconList
 
     if ([self.iconViewProvider class] != objc_getClass("SBHomeScreenPreviewView")
             && [self.iconLocation isEqualToString:@"SBIconLocationRoot"]
-            && kCFCoreFoundationVersionNumber > 1600)
+            && kCFCoreFoundationVersionNumber > 1600
+            && kCFCoreFoundationVersionNumber < 1700)
     {
-        o.y += 54;
+        o.y += (54 + [[prefs valueForKey:@"BottomMargin"] intValue]+ [[prefs valueForKey:@"TopMargin"] intValue]);
     }
 
     return o;
@@ -149,9 +154,22 @@ static void hooked_SBRFC_viewWillAppear (SBRootFolderController *self, SEL cmd, 
     }
 }
 
+static void preferencesChanged()
+{
+    [[CHPManager sharedInstance] reloadLabelsForRootFolderController:[[[objc_getClass("SBIconController") sharedInstance] iconManager] rootFolderController] index:-1];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HPLayoutIconViews" object:nil];
+}
+
 static __attribute__((constructor)) void ChaptersInit (int argc, char **argv, char **envp)
 {
     NSLog(@"Chapters: Injected");
+
+    prefs = [[NSUserDefaults alloc] initWithSuiteName:@"me.kritanta.chapters"];
+
+    if ([prefs valueForKey:@"TopMargin"] == nil)
+        [prefs setValue:0 forKey:@"TopMargin"];
+    if ([prefs valueForKey:@"BottomMargin"] == nil)
+        [prefs setValue:0 forKey:@"BottomMargin"];
 
     MSHookMessageEx(objc_getClass("SBRootFolderController"),
             @selector(viewWillAppear:),
@@ -168,7 +186,8 @@ static __attribute__((constructor)) void ChaptersInit (int argc, char **argv, ch
             (IMP) &hooked_SBILV_layoutIconsNow,
             (IMP *) &orig_SBILV_layoutIconsNow);
 
-    MSHookMessageEx(objc_getClass("SBIconListView"),
+    if (kCFCoreFoundationVersionNumber < 1700)
+        MSHookMessageEx(objc_getClass("SBIconListView"),
             @selector(originForIconAtCoordinate:metrics:),
             (IMP) &hooked_SBILV_originForIconAtCoordinate$metrics,
             (IMP *) &orig_SBILV_originForIconAtCoordinate$metrics);
@@ -178,4 +197,12 @@ static __attribute__((constructor)) void ChaptersInit (int argc, char **argv, ch
             (IMP) &hooked_UISB_setForegroundColor,
             (IMP *) &orig_UISB_setForegroundColor);
 
+    CFNotificationCenterAddObserver(
+        CFNotificationCenterGetDarwinNotifyCenter(),
+        &observer,
+        (CFNotificationCallback)preferencesChanged,
+        (CFStringRef)@"me.krit.chapters/prefs",
+        NULL,
+        CFNotificationSuspensionBehaviorDeliverImmediately
+    );
 }

@@ -11,6 +11,7 @@
 }
 
 @synthesize index = _index;
+@synthesize realText = _realText;
 @synthesize labelDelegate = _labelDelegate;
 
 /**
@@ -45,7 +46,7 @@
         [self setFrame:[_labelDelegate frameForLabel]];
 
         _actualLabel = [[UITextField alloc] initWithFrame:[self bounds]];
-        [_actualLabel setText:[_labelDelegate nameForPageIndex:index]];
+        [self updateTextWithString:[_labelDelegate nameForPageIndex:index]];
         [_actualLabel setFont:[CHPPageLabelView labelFont]];
         [_actualLabel setDelegate:self];
 
@@ -64,6 +65,17 @@
 {
     self.frame = [_labelDelegate frameForLabel];
     [_actualLabel setTextColor:[_labelDelegate labelColor]];
+}
+
+- (void)updateTextWithString:(NSString *)string
+{
+    // TODO: process
+    [_actualLabel setText:string];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+
 }
 
 /**

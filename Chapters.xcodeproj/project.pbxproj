@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B36163EC7ED6600241098844 /* CHPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B3616C85EC7E40E8014EB435 /* CHPManager.m */; };
+		B361655335221B47937F4CE7 /* CHPPageLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3616D13B1C5EFE0C707F4BA /* CHPPageLabelView.m */; };
+		B361671068BF9B58CC936496 /* Chapters.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3616369A63AE1CD196A4C39 /* Chapters.mm */; };
+		B3616EA25D2A930E2BBB4370 /* Chapters.xm.mm in Sources */ = {isa = PBXBuildFile; fileRef = B36162B9ABFEF0DF3827E38E /* Chapters.xm.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		5FBB363824651D87007A485A /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = .xm;
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).mm",
+			);
+			script = "mkdir -p .dragon/logos\n$DRAGONBUILD/bin/logos.pl ${INPUT_FILE_PATH} > ${DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.xm.mm\n";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXFileReference section */
+		5FBB362F24651C92007A485A /* Chapters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Chapters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B36160011937A9C509DFB4F4 /* .ninja_log */ = {isa = PBXFileReference; lastKnownFileType = file.ninja_log; path = .ninja_log; sourceTree = "<group>"; };
+		B3616154E6FD96D27D223E20 /* CHPPageLabelView.m.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = CHPPageLabelView.m.o; sourceTree = "<group>"; };
+		B36161F9758ACE4A74486267 /* Chapters.xm.mm.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Chapters.xm.mm.o; sourceTree = "<group>"; };
+		B36162042FFDC1B890BA2426 /* build.ninja */ = {isa = PBXFileReference; lastKnownFileType = file.ninja; path = build.ninja; sourceTree = "<group>"; };
+		B361622756164C8A195005BD /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		B361622A51ECB259AF128E5F /* last_package */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = last_package; sourceTree = "<group>"; };
+		B36162B9ABFEF0DF3827E38E /* Chapters.xm.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Chapters.xm.mm; sourceTree = "<group>"; };
+		B3616369A63AE1CD196A4C39 /* Chapters.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Chapters.mm; sourceTree = "<group>"; };
+		B361638219441DC3E872F98F /* Chapters.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = Chapters.dylib; sourceTree = "<group>"; };
+		B36163CE327BA137A09D4E68 /* Chapters.dylib.unsigned */ = {isa = PBXFileReference; lastKnownFileType = file.unsigned; path = Chapters.dylib.unsigned; sourceTree = "<group>"; };
+		B361642D95123CF53B8CBA21 /* Chapters.arm64e */ = {isa = PBXFileReference; lastKnownFileType = file.arm64e; path = Chapters.arm64e; sourceTree = "<group>"; };
+		B3616473FE27E9B602FD9117 /* substrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
+		B361647BE240844DC806E322 /* CHPPageLabelView.m.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = CHPPageLabelView.m.o; sourceTree = "<group>"; };
+		B361660799698E8E68C206FF /* Chapters.arm64 */ = {isa = PBXFileReference; lastKnownFileType = file.arm64; path = Chapters.arm64; sourceTree = "<group>"; };
+		B36166AB3C1CF2BE1B4753E2 /* CHPManager.m.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = CHPManager.m.o; sourceTree = "<group>"; };
+		B361671BC6A22D60F5880D8B /* CHPLabelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHPLabelDelegate.h; sourceTree = "<group>"; };
+		B36167354EC8181EDAB7751B /* .ninja_deps */ = {isa = PBXFileReference; lastKnownFileType = file.ninja_deps; path = .ninja_deps; sourceTree = "<group>"; };
+		B3616868262419BE78C765B0 /* SpringBoardHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringBoardHome.h; sourceTree = "<group>"; };
+		B36168971A16E6272DF716C7 /* CHPManager.m.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = CHPManager.m.o; sourceTree = "<group>"; };
+		B36168FE2DF97819EF7EDF5C /* CHPPageLabelView.m.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = CHPPageLabelView.m.o; sourceTree = "<group>"; };
+		B3616985A88AF31B1E20D7B5 /* Chapters.dylib.unsym */ = {isa = PBXFileReference; lastKnownFileType = file.unsym; path = Chapters.dylib.unsym; sourceTree = "<group>"; };
+		B36169A18565E292406AAFA0 /* CHPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHPManager.h; sourceTree = "<group>"; };
+		B36169BD03CDEEF82574968B /* CHPManager.m.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = CHPManager.m.o; sourceTree = "<group>"; };
+		B36169C680A16B8BD2A0798A /* Chapters.xm.mm.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Chapters.xm.mm.o; sourceTree = "<group>"; };
+		B36169D9DCA9779AAF7B1732 /* DragonMake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DragonMake; sourceTree = "<group>"; };
+		B3616B734561A7F107C7AF96 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		B3616BD7247D3A24B8768860 /* Chapters.armv7 */ = {isa = PBXFileReference; lastKnownFileType = file.armv7; path = Chapters.armv7; sourceTree = "<group>"; };
+		B3616C17C3EF2291E6BF0589 /* Chapters.xm.mm.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = Chapters.xm.mm.o; sourceTree = "<group>"; };
+		B3616C4FB2269D7D53512771 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		B3616C5C9545727D7D2598D7 /* Chapters.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Chapters.plist; sourceTree = "<group>"; };
+		B3616C85EC7E40E8014EB435 /* CHPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHPManager.m; sourceTree = "<group>"; };
+		B3616CE28DC522B976D5AC96 /* CHPPageLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHPPageLabelView.h; sourceTree = "<group>"; };
+		B3616D13B1C5EFE0C707F4BA /* CHPPageLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHPPageLabelView.m; sourceTree = "<group>"; };
+		B3616DD0FE1D5F4169AF6AB5 /* Chapters.dylib.unsym */ = {isa = PBXFileReference; lastKnownFileType = file.unsym; path = Chapters.dylib.unsym; sourceTree = "<group>"; };
+		B3616F506D1551FCBD18F795 /* Chapters.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Chapters.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		5FBB363024651C92007A485A /* Chapters */ = {
+			isa = PBXGroup;
+			children = (
+				B361671BC6A22D60F5880D8B /* CHPLabelDelegate.h */,
+				B3616C85EC7E40E8014EB435 /* CHPManager.m */,
+				B36169A18565E292406AAFA0 /* CHPManager.h */,
+				B3616D13B1C5EFE0C707F4BA /* CHPPageLabelView.m */,
+				B3616CE28DC522B976D5AC96 /* CHPPageLabelView.h */,
+				B36161B714D0D7E2A9C96FA6 /* include */,
+			);
+			path = Chapters;
+			sourceTree = "<group>";
+		};
+		B361606AFB222CB417DF708A /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				B36162A3C9329D818161181B /* DynamicLibraries */,
+			);
+			path = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		B36161B714D0D7E2A9C96FA6 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				B3616473FE27E9B602FD9117 /* substrate.h */,
+			);
+			path = include;
+			sourceTree = SOURCE_ROOT;
+		};
+		B361622ACF40EA328F8409EE /* arm64e */ = {
+			isa = PBXGroup;
+			children = (
+				B36168971A16E6272DF716C7 /* CHPManager.m.o */,
+				B3616C17C3EF2291E6BF0589 /* Chapters.xm.mm.o */,
+				B3616154E6FD96D27D223E20 /* CHPPageLabelView.m.o */,
+			);
+			path = arm64e;
+			sourceTree = "<group>";
+		};
+		B36162A3C9329D818161181B /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				B361638219441DC3E872F98F /* Chapters.dylib */,
+				B3616C5C9545727D7D2598D7 /* Chapters.plist */,
+			);
+			path = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		B36164D5789DEFDEE99224D3 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				B361680D1DB94494CE415273 /* MobileSubstrate */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		B361650C953A2A58EEC36F4D /* arm64 */ = {
+			isa = PBXGroup;
+			children = (
+				B36169BD03CDEEF82574968B /* CHPManager.m.o */,
+				B36161F9758ACE4A74486267 /* Chapters.xm.mm.o */,
+				B36168FE2DF97819EF7EDF5C /* CHPPageLabelView.m.o */,
+			);
+			path = arm64;
+			sourceTree = "<group>";
+		};
+		B361652C99D9B0886B9F711A /* ninja */ = {
+			isa = PBXGroup;
+			children = (
+				B36162042FFDC1B890BA2426 /* build.ninja */,
+			);
+			path = ninja;
+			sourceTree = "<group>";
+		};
+		B361677E54EAE72A1861B6A8 = {
+			isa = PBXGroup;
+			children = (
+				5FBB363024651C92007A485A /* Chapters */,
+				B3616958D458BDB4646FB7DF /* Products */,
+				B36169D9DCA9779AAF7B1732 /* DragonMake */,
+				B3616F506D1551FCBD18F795 /* Chapters.plist */,
+				B361622756164C8A195005BD /* control */,
+				B3616C0ADD187ADD5E2678C0 /* .dragon */,
+				B3616369A63AE1CD196A4C39 /* Chapters.mm */,
+				B3616868262419BE78C765B0 /* SpringBoardHome.h */,
+			);
+			sourceTree = "<group>";
+		};
+		B36167FF51F587A06EFD799B /* _ */ = {
+			isa = PBXGroup;
+			children = (
+				B36164D5789DEFDEE99224D3 /* Library */,
+			);
+			path = _;
+			sourceTree = "<group>";
+		};
+		B361680D1DB94494CE415273 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				B3616BA05D24781B0D12E787 /* DynamicLibraries */,
+			);
+			path = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		B36168D6511F2F34335205D5 /* armv7 */ = {
+			isa = PBXGroup;
+			children = (
+				B36166AB3C1CF2BE1B4753E2 /* CHPManager.m.o */,
+				B36169C680A16B8BD2A0798A /* Chapters.xm.mm.o */,
+				B361647BE240844DC806E322 /* CHPPageLabelView.m.o */,
+			);
+			path = armv7;
+			sourceTree = "<group>";
+		};
+		B36168D9F241E7A348972009 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				B3616FA15059FAC89C8F015D /* Resources */,
+				B3616C4FB2269D7D53512771 /* Info.plist */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		B36168E7E67A70A854CC6FBB /* sign */ = {
+			isa = PBXGroup;
+			children = (
+				B3616E46D23550E516204667 /* .dragon */,
+			);
+			path = sign;
+			sourceTree = "<group>";
+		};
+		B361693A34B7795EA8E98EBC /* build */ = {
+			isa = PBXGroup;
+			children = (
+				B361650C953A2A58EEC36F4D /* arm64 */,
+				B36168D6511F2F34335205D5 /* armv7 */,
+				B3616FF228F10C4985670A1F /* logos */,
+				B361622ACF40EA328F8409EE /* arm64e */,
+				B36160011937A9C509DFB4F4 /* .ninja_log */,
+				B36167354EC8181EDAB7751B /* .ninja_deps */,
+				B361660799698E8E68C206FF /* Chapters.arm64 */,
+				B3616BD7247D3A24B8768860 /* Chapters.armv7 */,
+				B361642D95123CF53B8CBA21 /* Chapters.arm64e */,
+			);
+			path = build;
+			sourceTree = "<group>";
+		};
+		B3616958D458BDB4646FB7DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FBB362F24651C92007A485A /* Chapters.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B3616A5DFD0BE55A8E78BABE /* Chapters.dylib.unsym.dSYM */ = {
+			isa = PBXGroup;
+			children = (
+				B36168D9F241E7A348972009 /* Contents */,
+			);
+			path = Chapters.dylib.unsym.dSYM;
+			sourceTree = "<group>";
+		};
+		B3616A855E920F684884444F /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				B3616B734561A7F107C7AF96 /* control */,
+			);
+			path = DEBIAN;
+			sourceTree = "<group>";
+		};
+		B3616ACBDF1F46F24AA304D8 /* modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
+		B3616B036789D62179D02033 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				B361606AFB222CB417DF708A /* MobileSubstrate */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		B3616BA05D24781B0D12E787 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				B3616DD0FE1D5F4169AF6AB5 /* Chapters.dylib.unsym */,
+				B36163CE327BA137A09D4E68 /* Chapters.dylib.unsigned */,
+				B3616A5DFD0BE55A8E78BABE /* Chapters.dylib.unsym.dSYM */,
+			);
+			path = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		B3616C0ADD187ADD5E2678C0 /* .dragon */ = {
+			isa = PBXGroup;
+			children = (
+				B3616F75E70BB19382ADF0C8 /* _ */,
+				B36168E7E67A70A854CC6FBB /* sign */,
+				B361693A34B7795EA8E98EBC /* build */,
+				B361652C99D9B0886B9F711A /* ninja */,
+				B3616ACBDF1F46F24AA304D8 /* modules */,
+				B361622A51ECB259AF128E5F /* last_package */,
+			);
+			path = .dragon;
+			sourceTree = "<group>";
+		};
+		B3616E46D23550E516204667 /* .dragon */ = {
+			isa = PBXGroup;
+			children = (
+				B36167FF51F587A06EFD799B /* _ */,
+			);
+			path = .dragon;
+			sourceTree = "<group>";
+		};
+		B3616F75E70BB19382ADF0C8 /* _ */ = {
+			isa = PBXGroup;
+			children = (
+				B3616A855E920F684884444F /* DEBIAN */,
+				B3616B036789D62179D02033 /* Library */,
+			);
+			path = _;
+			sourceTree = "<group>";
+		};
+		B3616FA15059FAC89C8F015D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B3616FDBAC7CCA9D3FB7A8E0 /* DWARF */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B3616FDBAC7CCA9D3FB7A8E0 /* DWARF */ = {
+			isa = PBXGroup;
+			children = (
+				B3616985A88AF31B1E20D7B5 /* Chapters.dylib.unsym */,
+			);
+			path = DWARF;
+			sourceTree = "<group>";
+		};
+		B3616FF228F10C4985670A1F /* logos */ = {
+			isa = PBXGroup;
+			children = (
+				B36162B9ABFEF0DF3827E38E /* Chapters.xm.mm */,
+			);
+			path = logos;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5FBB362E24651C92007A485A /* Chapters */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FBB363624651C92007A485A /* Build configuration list for PBXNativeTarget "Chapters" */;
+			buildPhases = (
+				5FBB363924651F7C007A485A /* Sources */,
+				5FBB363724651CC2007A485A /* ShellScript */,
+			);
+			buildRules = (
+				5FBB363824651D87007A485A /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = Chapters;
+			productName = Chapters;
+			productReference = 5FBB362F24651C92007A485A /* Chapters.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B361602762CFC4F7AACC4725 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				TargetAttributes = {
+					5FBB362E24651C92007A485A = {
+						CreatedOnToolsVersion = 11.4;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B3616B07BF17BAF3A7A48D5E /* Build configuration list for PBXProject "Chapters" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = B361677E54EAE72A1861B6A8;
+			productRefGroup = B3616958D458BDB4646FB7DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5FBB362E24651C92007A485A /* Chapters */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5FBB363724651CC2007A485A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "dragon build\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5FBB363924651F7C007A485A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3616EA25D2A930E2BBB4370 /* Chapters.xm.mm in Sources */,
+				B36163EC7ED6600241098844 /* CHPManager.m in Sources */,
+				B361655335221B47937F4CE7 /* CHPPageLabelView.m in Sources */,
+				B361671068BF9B58CC936496 /* Chapters.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5FBB363424651C92007A485A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Chapters/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = me.kritanta.Chapters;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5FBB363524651C92007A485A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Chapters/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = me.kritanta.Chapters;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B361662733E40EBC59945D90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ADDITIONAL_SDKS = /Users/kritanta/ios/DragonBuild/sdks/iPhoneOS.sdk;
+			};
+			name = Debug;
+		};
+		B3616D1097EB0E34F41CE9C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ADDITIONAL_SDKS = /Users/kritanta/ios/DragonBuild/sdks/iPhoneOS.sdk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5FBB363624651C92007A485A /* Build configuration list for PBXNativeTarget "Chapters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FBB363424651C92007A485A /* Debug */,
+				5FBB363524651C92007A485A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3616B07BF17BAF3A7A48D5E /* Build configuration list for PBXProject "Chapters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B361662733E40EBC59945D90 /* Debug */,
+				B3616D1097EB0E34F41CE9C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B361602762CFC4F7AACC4725 /* Project object */;
+}

@@ -1,12 +1,26 @@
 ---
 name: Chapters
-icmd: sbreload
+icmd: killall -9 SpringBoard
+id: me.kritanta.chapters
+depends: mobilesubstrate
+version: 1.0.1
+architecture: iphoneos-arm
+description: Label your pages.
+author: Kritanta
+section: Tweaks
+icon: http://repo.openpack.io/icon/Chapters.png
 
 Chapters:
   type: tweak
+  cflags: -w
   include:
     - include/
-  objc_files:
+  files:
     - Chapters.mm
     - Chapters/CHPManager.m
     - Chapters/CHPPageLabelView.m
+  stage:
+    - mkdir -p .dragon/_/Library/PreferenceBundles/ChaptersPrefs.bundle
+    - cp icon@2x.png .dragon/_/Library/PreferenceBundles/ChaptersPrefs.bundle
+    - cp Prefs.plist .dragon/_/Library/PreferenceBundles/ChaptersPrefs.bundle/Info.plist
+    - cp HomePlus.plist .dragon/_/Library/PreferenceBundles/ChaptersPrefs.bundle

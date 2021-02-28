@@ -13,6 +13,7 @@
 
 @property (nonatomic, readonly) NSInteger index;
 @property (nonatomic, weak, readwrite) NSObject <CHPLabelDelegate> *labelDelegate;
+@property (nonatomic, strong, readonly) NSString *realText;
 @property (nonatomic, strong, readonly) UITextField *actualLabel;
 
 - (instancetype)initWithPageIndex:(NSInteger)index andLabelDelegate:(NSObject <CHPLabelDelegate> *)labelDelegate;

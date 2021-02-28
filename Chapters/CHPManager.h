@@ -10,6 +10,8 @@
 #ifndef CHPMANAGER_H
 #define CHPMANAGER_H
 
+static NSUserDefaults *prefs = nil;
+
 @interface CHPManager : NSObject <CHPLabelDelegate>
 
 - (instancetype)initWithDomain:(NSString *)domain;

@@ -1,0 +1,165 @@
+name = Chapters
+lowername = chapters
+
+# Build file for Chapters
+# Generated at 01/04/21 20:29:15
+
+stagedir = _
+location = /Library/MobileSubstrate/DynamicLibraries/
+dragondir = $$DRAGONBUILD
+sysroot = -isysroot $dragondir/sdks/iPhoneOS.sdk
+proj_build_dir = .dragon
+objdir = $proj_build_dir/obj
+signdir = $proj_build_dir/sign
+builddir = $proj_build_dir/build
+build_target_file = $proj_build_dir/$stagedir/$location$name.dylib
+pwd = .
+resource_dir = Resources
+toolchain-prefix = arm64-apple-darwin14-
+
+stage = mkdir -p .dragon/_/Library/PreferenceBundles/ChaptersPrefs.bundle; $
+    cp icon@2x.png $
+    .dragon/_/Library/PreferenceBundles/ChaptersPrefs.bundle; cp $
+    Prefs.plist $
+    .dragon/_/Library/PreferenceBundles/ChaptersPrefs.bundle/Info.plist; cp $
+    HomePlus.plist .dragon/_/Library/PreferenceBundles/ChaptersPrefs.bundle
+stage2 = cp $name.plist $
+    $proj_build_dir/_/Library/MobileSubstrate/DynamicLibraries/$name.plist
+
+
+internalsigntarget = $signdir/$build_target_file.unsigned
+internalsymtarget = $signdir/$build_target_file.unsym
+
+fwSearch = -F$dragondir/sdks/iPhoneOS.sdk/System/Library/PrivateFrameworks/ $
+    -F$dragondir/frameworks
+libSearch = -L$dragondir/lib -L.
+modulesinternal = -fmodules -fcxx-modules -fmodule-name=$name $
+    -fbuild-session-file=$proj_build_dir/modules/ $
+    -fmodules-validate-once-per-build-session -fmodules-prune-after=345600 $
+    -fmodules-prune-interval=86400
+
+cc = clang
+codesign = ldid
+cxx = clang++
+dsym = dsymutil
+ld = clang++
+lipo = lipo
+logos = $dragondir/src/logos/bin/logos.pl
+optool = $dragondir/bin/optool
+plutil = plutil
+swift = swift
+
+targetvers = 10.0
+targetprefix = -miphoneos-version-min=
+targetos = iphoneos
+triple = 
+
+frameworks = -framework UIKit -framework Foundation
+libs = 
+
+macros = 
+arc = -fobjc-arc
+btarg = 
+debug = -fcolor-diagnostics
+entfile = 
+entflag = -S
+optim = 0
+warnings = -Wall
+
+cinclude = -I$dragondir/include -I$dragondir/vendor/include $
+    -I$dragondir/include/_fallback -I$DRAGONBUILD/headers/ -I$pwd
+header_includes = -Iinclude/
+public_headers = 
+
+usrCflags = 
+usrLDflags = 
+
+libflags = 
+lopts = -dynamiclib -ggdb -Xlinker -segalign -Xlinker 4000 -framework $
+    CydiaSubstrate
+typeldflags = 
+
+cflags = -w
+ldflags = 
+lflags = 
+lfflags = 
+swiftflags = 
+
+theosshim = 
+internalcflags = $cinclude $debug $fwSearch $cflags $btarg -O$optim  $
+    $targetprefix$targetvers $sysroot $header_includes $arc $triple $
+    $theosshim $macros $warnings $modulesinternal
+internalldflags = $internalcflags $typeldflags $frameworks $libs $libflags $
+    $lopts $libSearch $ldflags $libs
+internallflags = 
+internallfflags = 
+internalswiftflags = -color-diagnostics -enable-objc-interop -sdk $
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk $
+    -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos $
+    -g -L/usr/lib/swift -swift-version 5 -module-name $name
+
+rule linkarmv7
+  command = $ld -arch armv7 $internallflags $internalldflags -o $out $in 
+  description = Linking $in with $ld [armv7]
+rule linkarm64
+  command = $ld -arch arm64 $internallflags $internalldflags -o $out $in 
+  description = Linking $in with $ld [arm64]
+rule linkarm64e
+  command = $ld -arch arm64e $internallflags $internalldflags -o $out $in 
+  description = Linking $in with $ld [arm64e]
+rule objcxxarmv7
+  command = $cxx -arch armv7 $internalcflags -c $in -o $out
+  description = Compiling $in with $cxx [armv7]
+rule lipo
+  command = $lipo -create $in -output $out
+  description = Merging architechtures
+rule objcxxarm64e
+  command = $cxx -arch arm64e $internalcflags -c $in -o $out
+  description = Compiling $in with $cxx [arm64e]
+rule debug
+  command = $dsym \"$in\" 2&> /dev/null; cp $in $out
+  description = Generating Debug Symbols for $name
+rule stage
+  command = $stage && $stage2
+  description = Running Stage for $name
+rule objcarm64
+  command = $cc -arch arm64 $internalcflags -c $in -o $out
+  description = Compiling $in with $cc [arm64]
+rule objcarmv7
+  command = $cc -arch armv7 $internalcflags -c $in -o $out
+  description = Compiling $in with $cc [armv7]
+rule sign
+  command = $codesign $entflag$entfile $in && cp $in $out
+  description = Signing $name
+rule objcarm64e
+  command = $cc -arch arm64e $internalcflags -c $in -o $out
+  description = Compiling $in with $cc [arm64e]
+rule objcxxarm64
+  command = $cxx -arch arm64 $internalcflags -c $in -o $out
+  description = Compiling $in with $cxx [arm64]
+
+build $builddir/armv7/CHPManager.m.o: objcarmv7 Chapters/CHPManager.m
+build $builddir/armv7/CHPPageLabelView.m.o: objcarmv7 $
+    Chapters/CHPPageLabelView.m
+build $builddir/armv7/Chapters.mm.o: objcxxarmv7 Chapters.mm
+build $builddir/$name.armv7: linkarmv7 $builddir/armv7/CHPManager.m.o $
+    $builddir/armv7/CHPPageLabelView.m.o $builddir/armv7/Chapters.mm.o
+build $builddir/arm64/CHPManager.m.o: objcarm64 Chapters/CHPManager.m
+build $builddir/arm64/CHPPageLabelView.m.o: objcarm64 $
+    Chapters/CHPPageLabelView.m
+build $builddir/arm64/Chapters.mm.o: objcxxarm64 Chapters.mm
+build $builddir/$name.arm64: linkarm64 $builddir/arm64/CHPManager.m.o $
+    $builddir/arm64/CHPPageLabelView.m.o $builddir/arm64/Chapters.mm.o
+build $builddir/arm64e/CHPManager.m.o: objcarm64e Chapters/CHPManager.m
+build $builddir/arm64e/CHPPageLabelView.m.o: objcarm64e $
+    Chapters/CHPPageLabelView.m
+build $builddir/arm64e/Chapters.mm.o: objcxxarm64e Chapters.mm
+build $builddir/$name.arm64e: linkarm64e $builddir/arm64e/CHPManager.m.o $
+    $builddir/arm64e/CHPPageLabelView.m.o $builddir/arm64e/Chapters.mm.o
+build $internalsymtarget: lipo $builddir/$name.armv7 $builddir/$name.arm64 $
+    $builddir/$name.arm64e
+build $internalsigntarget: debug $internalsymtarget
+build $build_target_file: sign $internalsigntarget
+build stage: stage build.ninja
+
+default $build_target_file
